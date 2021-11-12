@@ -1,0 +1,36 @@
+{
+    "name": "edic",
+    "displayName": "EDiC",
+    "description": "EDiC support for Visual Studio Code",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.62.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "edic",
+                "aliases": [
+                    "EDiC",
+                    "edic"
+                ],
+                "extensions": [
+                    ".s",
+                    ".S",
+                    ".asm"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "edic",
+                "scopeName": "source.edic",
+                "path": "./syntaxes/edic.tmLanguage.json"
+            }
+        ]
+    }
+}
