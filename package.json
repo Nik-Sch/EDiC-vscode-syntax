@@ -2,9 +2,9 @@
     "name": "edic",
     "displayName": "EDiC",
     "description": "EDiC support for Visual Studio Code",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
-        "vscode": "^1.62.0"
+        "vscode": "^1.60.0"
     },
     "publisher": "Nik-Sch",
     "categories": [
