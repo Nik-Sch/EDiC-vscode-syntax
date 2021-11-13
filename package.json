@@ -6,9 +6,14 @@
     "engines": {
         "vscode": "^1.62.0"
     },
+    "publisher": "Nik-Sch",
     "categories": [
         "Programming Languages"
     ],
+    "repository": {
+        "url": "https://github.com/Nik-Sch/EDiC-vscode-syntax"
+    },
+    "license": "MIT",
     "contributes": {
         "languages": [
             {
