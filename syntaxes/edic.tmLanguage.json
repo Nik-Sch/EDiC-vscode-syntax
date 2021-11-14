@@ -52,6 +52,26 @@
       }
     },
     {
+      "match": "(\\S+)\\s*=\\s*(\\S+)",
+      "captures": {
+        "1": {
+          "patterns": [
+            {
+              "include": "#constants"
+            }
+          ]
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#numerics"
+            }
+          ]
+        }
+      }
+
+    },
+    {
       "name": "storage.memaddress.edic",
       "match": "\\[\\s*(\\S+)\\s*\\]",
       "captures": {
@@ -59,6 +79,9 @@
           "patterns": [
             {
               "include": "#numerics"
+            },
+            {
+              "include": "#constants"
             }
           ]
         }
@@ -130,6 +153,14 @@
         {
           "match": "\\b[a-zA-Z]\\w*\\b",
           "name": "variable.named.edic"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b[a-zA-Z]\\w*\\b",
+          "name": "constant.edic"
         }
       ]
     }
