@@ -7,7 +7,7 @@
       "name": "support.function.mnemonic.arithmetic.edic"
     },
     {
-      "match": "\\b(?i)ldr|lds|str|sts|ldf|stf(?-i)\\b",
+      "match": "\\b(?i)ldr|lds|str|sts|ldf|stf|sma(?-i)\\b",
       "name": "support.function.mnemonic.memory.edic"
     },
     {
@@ -39,7 +39,7 @@
       }
     },
     {
-      "name": "storage.memaddress.edic",
+      "name": "meta.brace.square.edic",
       "match": "\\[\\s*(r[01])\\s*\\]",
       "captures": {
         "1": {
@@ -72,7 +72,7 @@
 
     },
     {
-      "name": "storage.memaddress.edic",
+      "name": "meta.brace.square.edic",
       "match": "\\[\\s*(\\S+)\\s*\\]",
       "captures": {
         "1": {
