@@ -6,11 +6,11 @@
       "include": "#comments"
     },
     {
-      "match": "^\\s*[a-zA-Z]\\w*:",
+      "match": "^[ \t]*[a-zA-Z]\\w*:",
       "name": "variable.named.edic"
     },
     {
-      "match": "^\\s*(\\.?\\S+)\\s*=\\s*([^#@/]+)",
+      "match": "^[ \t]*(\\.?\\S+)[ \t]*=[ \t]*([^#@/]+)",
       "captures": {
         "1": {
           "patterns": [
@@ -32,7 +32,7 @@
       }
     },
     {
-      "match": "^\\s*\\b(?i)(\\S+)\\s+([^,]*),\\s+([^#@/]+)",
+      "match": "^[ \t]*\\b(?i)(\\S+)[ \t]+([^,]*),[ \t]+([^#@/]+)",
       "captures": {
         "1": {
           "patterns": [
@@ -70,7 +70,7 @@
       }
     },
     {
-      "match": "^\\s*(?i)(sma)\\s+([^#@/]+)",
+      "match": "^[ \t]*(?i)(sma)[ \t]+([^#@/]+)",
       "captures": {
         "1": {
           "name": "support.function.mnemonic.memory.edic"
@@ -91,7 +91,7 @@
       }
     },
     {
-      "match": "^\\s*(?i)(\\S+)\\s+([^#@/]+)",
+      "match": "^[ \t]*(?i)(\\S+)[ \t]+([^#@/]+)",
       "captures": {
         "1": {
           "patterns": [
@@ -110,7 +110,7 @@
       }
     },
     {
-      "match": "^\\s*(?i)ret",
+      "match": "^[ \t]*(?i)ret",
       "name": "support.function.mnemonic.memory.edic"
     }
   ],
@@ -152,7 +152,7 @@
     },
     "addresses": {
       "name": "meta.brace.square.edic",
-      "match": "\\[\\s*(\\S+)\\s*\\]",
+      "match": "\\[[ \t]*(\\S+)[ \t]*\\]",
       "captures": {
         "1": {
           "patterns": [
