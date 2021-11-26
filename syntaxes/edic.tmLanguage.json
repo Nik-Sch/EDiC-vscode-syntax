@@ -3,43 +3,14 @@
   "name": "EDiC",
   "patterns": [
     {
-      "match": "^\\s*\\b(?i)(?:(?:add|sub|and|eor|xor|xnor|lsr|lsl|mov)s?)|cmp(?-i)\\b",
-      "name": "support.function.mnemonic.arithmetic.edic"
+      "include": "#comments"
     },
     {
-      "match": "^\\s*\\b(?i)ldr|lds|str|sts|ldf|stf|sma(?-i)\\b",
-      "name": "support.function.mnemonic.memory.edic"
+      "match": "^\\s*[a-zA-Z]\\w*:",
+      "name": "variable.named.edic"
     },
     {
-      "match": "^\\s*\\b(?i)(?:call\\s+(\\w*))|ret(?-i)\\b",
-      "name": "support.function.mnemonic.memory.edic",
-      "captures": {
-        "1": {
-          "patterns": [
-            {
-              "include": "#labelsText"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "match": "^\\s*\\b(?i)(b(?:al|mp|eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le)?)\\s+(\\w*)?(?-i)\\b",
-      "captures": {
-        "1": {
-          "name": "support.function.mnemonic.memory.edic"
-        },
-        "2": {
-          "patterns": [
-            {
-              "include": "#labelsText"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "match": "^\\s*(\\.?\\S+)\\s*=\\s*(.*)",
+      "match": "^\\s*(\\.?\\S+)\\s*=\\s*([^#@/]+)",
       "captures": {
         "1": {
           "patterns": [
@@ -61,36 +32,86 @@
       }
     },
     {
-      "name": "meta.brace.square.edic",
-      "match": "\\[\\s*(\\S+)\\s*\\]",
+      "match": "^\\s*\\b(?i)(\\S+)\\s+([^,]*),\\s+([^#@/]+)",
       "captures": {
         "1": {
           "patterns": [
             {
-              "include": "#registers"
+              "include": "#memory"
             },
+            {
+              "include": "#arithmetics"
+            }
+          ]
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#registers"
+            }
+          ]
+        },
+        "3": {
+          "patterns": [
             {
               "include": "#numerics"
             },
             {
               "include": "#constants"
+            },
+            {
+              "include": "#registers"
+            },
+            {
+              "include": "#addresses"
             }
           ]
         }
       }
     },
     {
-      "name": "variable.named.edic",
-      "match": "[a-zA-Z]\\w*:"
+      "match": "^\\s*(?i)(sma)\\s+([^#@/]+)",
+      "captures": {
+        "1": {
+          "name": "support.function.mnemonic.memory.edic"
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#numerics"
+            },
+            {
+              "include": "#constants"
+            },
+            {
+              "include": "#registers"
+            }
+          ]
+        }
+      }
     },
     {
-      "include": "#registers"
+      "match": "^\\s*(?i)(\\S+)\\s+([^#@/]+)",
+      "captures": {
+        "1": {
+          "patterns": [
+            {
+              "include": "#branches"
+            }
+          ]
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#labelsText"
+            }
+          ]
+        }
+      }
     },
     {
-      "include": "#numerics"
-    },
-    {
-      "include": "#comments"
+      "match": "^\\s*(?i)ret",
+      "name": "support.function.mnemonic.memory.edic"
     }
   ],
   "repository": {
@@ -117,6 +138,37 @@
         }
       ]
     },
+    "branches": {
+      "match": "b(?:al|mp|eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le)?|call",
+      "name": "support.function.mnemonic.memory.edic"
+    },
+    "arithmetics": {
+      "match": "(?:add|sub|and|eor|xor|xnor|lsr|lsl|mov)s?|cmp",
+      "name": "support.function.mnemonic.arithmetic.edic"
+    },
+    "memory": {
+      "match": "ldr|lds|str|sts|ldf|stf",
+      "name": "support.function.mnemonic.memory.edic"
+    },
+    "addresses": {
+      "name": "meta.brace.square.edic",
+      "match": "\\[\\s*(\\S+)\\s*\\]",
+      "captures": {
+        "1": {
+          "patterns": [
+            {
+              "include": "#registers"
+            },
+            {
+              "include": "#numerics"
+            },
+            {
+              "include": "#constants"
+            }
+          ]
+        }
+      }
+    },
     "numerics": {
       "patterns": [
         {
@@ -124,7 +176,7 @@
           "name": "constant.numeric.hex.edic"
         },
         {
-          "match": "\\b\\d+\\b",
+          "match": "-?\\b\\d+\\b",
           "name": "constant.numeric.dec.edic"
         }
       ]
