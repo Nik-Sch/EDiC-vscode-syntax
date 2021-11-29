@@ -57,10 +57,10 @@
               "include": "#numerics"
             },
             {
-              "include": "#constants"
+              "include": "#registers"
             },
             {
-              "include": "#registers"
+              "include": "#constants"
             },
             {
               "include": "#addresses"
@@ -78,13 +78,13 @@
         "2": {
           "patterns": [
             {
+              "include": "#registers"
+            },
+            {
               "include": "#numerics"
             },
             {
               "include": "#constants"
-            },
-            {
-              "include": "#registers"
             }
           ]
         }
@@ -118,7 +118,7 @@
     "comments": {
       "patterns": [
         {
-          "match": "([;@]|//|#).*$",
+          "match": "[ \t]*([;@]|//|#).*$",
           "name": "comment.edic"
         },
         {
