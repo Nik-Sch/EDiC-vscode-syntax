@@ -6,6 +6,9 @@
       "include": "#comments"
     },
     {
+      "include": "#includes"
+    },
+    {
       "match": "^[ \t]*[a-zA-Z]\\w*:",
       "name": "variable.named.edic"
     },
@@ -138,8 +141,24 @@
         }
       ]
     },
+    "includes": {
+      "patterns": [
+        {
+          "match": "[ \t]*(include)\\s+(\"\\S+\")$",
+          "name": "meta.import.edic",
+          "captures": {
+            "1": {
+              "name": "keyword.control.import.edic"
+            },
+            "2": {
+              "name": "string.quoted.edic"
+            }
+          }
+        }
+      ]
+    },
     "branches": {
-      "match": "b(?:al|mp|eq|ne|cs|cc|mi|pl|vs|vc|hi|ls|ge|lt|gt|le)?|call",
+      "match": "b(?:al|mp|eq|ne|cs|hs|cc|lo|mi|pl|vs|vc|hi|ls|ge|lt|gt|le)?|call",
       "name": "support.function.mnemonic.memory.edic"
     },
     "arithmetics": {
@@ -193,7 +212,7 @@
       "patterns": [
         {
           "match": "\"(\\\\.|[^\"])*\"",
-          "name": "string.quoted.single.edic"
+          "name": "string.quoted.edic"
         }
       ]
     },
