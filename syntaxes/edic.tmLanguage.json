@@ -13,16 +13,23 @@
       "name": "variable.named.edic"
     },
     {
-      "match": "^[ \t]*(\\.?\\S+)[ \t]*=[ \t]*([^#@/]+)",
+      "match": "^[ \t]*(0x\\d+\\.)?(\\.?\\S+)[ \t]*=[ \t]*([^#@/]+)",
       "captures": {
         "1": {
+          "patterns": [
+            {
+              "include": "#numerics"
+            }
+          ]
+        },
+        "2": {
           "patterns": [
             {
               "include": "#constants"
             }
           ]
         },
-        "2": {
+        "3": {
           "patterns": [
             {
               "include": "#numerics"
@@ -228,7 +235,7 @@
       "patterns": [
         {
           "match": "\\.?[a-zA-Z]\\w*\\b",
-          "name": "constant.edic"
+          "name": "variable.other.constant.edic"
         }
       ]
     }
